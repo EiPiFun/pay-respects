@@ -1,0 +1,5 @@
+pay-respects (0.6.5-1) unstable; urgency=medium
+
+  * Initial debian release (Closes: #1089677)
+
+ -- Don Xu <me@eipi.fun>  Sun, 15 Dec 2024 16:32:46 +0800

@@ -1,0 +1,52 @@
+Description: Enable local third party
+ To avoid unavailable packages currently
+Author: Don Xu <me@eipi.fun>
+
+Origin: other
+Forwarded: not-needed
+Last-Update: 2024-12-15
+
+--- pay-respects-0.6.5.orig/core/Cargo.toml
++++ pay-respects-0.6.5/core/Cargo.toml
+@@ -16,7 +16,7 @@ include = ["**/*.rs", "**/*.toml"]
+ [dependencies]
+ colored = "2"
+ sys-locale = "0.3"
+-rust-i18n = "3"
++rust-i18n = { path = "../third-party/rust-i18n/" }
+ regex-lite = "0.1"
+ 
+ inquire = "0.7.5"
+--- pay-respects-0.6.5.orig/module-request-ai/Cargo.toml
++++ pay-respects-0.6.5/module-request-ai/Cargo.toml
+@@ -12,7 +12,7 @@ include = ["**/*.rs"]
+ [dependencies]
+ colored = "2"
+ sys-locale = "0.3"
+-rust-i18n = "3"
++rust-i18n = { path = "../third-party/rust-i18n/" }
+ serde_json = { version = "1.0" }
+ serde = { version = "1.0", features = ["derive"]}
+ textwrap = "0.16"
+--- pay-respects-0.6.5.orig/third-party/rust-i18n/Cargo.toml
++++ pay-respects-0.6.5/third-party/rust-i18n/Cargo.toml
+@@ -41,19 +41,6 @@ log-miss-tr = ["rust-i18n-macro/log-miss
+ name = "app"
+ test = true
+ 
+-[workspace]
+-members = [
+-    "crates/cli",
+-    "crates/extract",
+-    "crates/support",
+-    "crates/macro",
+-    "examples/app-egui",
+-    "examples/app-load-path",
+-    "examples/app-metadata",
+-    "examples/app-minify-key",
+-    "examples/foo",
+-]
+-
+ [[bench]]
+ harness = false
+ name = "bench"
