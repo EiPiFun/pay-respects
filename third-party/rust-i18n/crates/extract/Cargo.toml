@@ -1,0 +1,26 @@
+[package]
+description = "Extractor for rust-i18n crate."
+edition = "2021"
+license = "MIT"
+name = "rust-i18n-extract"
+readme = "../../README.md"
+repository = "https://github.com/longbridgeapp/rust-i18n"
+version = "3.1.1"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+anyhow = "1"
+ignore = "0.4"
+proc-macro2 = { version = "1", features = ["span-locations"] }
+quote = "1"
+regex = "1"
+rust-i18n-support = { path = "../support", version = "3.0.0" }
+serde = "1"
+serde_json = "1"
+serde_yml = "0.0.11"
+syn = { version = "2.0.18", features = ["full"] }
+toml = "0.7.4"
+
+[dev-dependencies]
+indoc = "1"
