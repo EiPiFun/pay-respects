@@ -1,0 +1,38 @@
+Description: Enable local parser and utils
+ To avoid download pay-respects-parser and pay-respect-utils
+Author: Don Xu <me@eipi.fun>
+
+Origin: other
+Forwarded: not-needed
+Last-Update: 2024-12-15
+
+--- pay-respects-0.6.5.orig/core/Cargo.toml
++++ pay-respects-0.6.5/core/Cargo.toml
+@@ -21,10 +21,10 @@ regex-lite = "0.1"
+ 
+ inquire = "0.7.5"
+ 
+-pay-respects-parser = "0.3.3"
+-pay-respects-utils = "0.1.2"
+-# pay-respects-parser = { path = "../parser" }
+-# pay-respects-utils = { path = "../utils"}
++# pay-respects-parser = "0.3.3"
++# pay-respects-utils = "0.1.2"
++pay-respects-parser = { path = "../parser" }
++pay-respects-utils = { path = "../utils"}
+ 
+ [package.metadata.deb]
+ assets = [
+--- pay-respects-0.6.5.orig/module-runtime-rules/Cargo.toml
++++ pay-respects-0.6.5/module-runtime-rules/Cargo.toml
+@@ -16,8 +16,8 @@ regex-lite = "0.1"
+ 
+ toml = { version = "0.8" }
+ serde = { version = "1.0", features = ["derive"] }
+-pay-respects-utils = "0.1.2"
+-# pay-respects-utils = { path = "../utils" }
++# pay-respects-utils = "0.1.2"
++pay-respects-utils = { path = "../utils" }
+ 
+ [[bin]]
+ name = "_pay-respects-module-100-runtime-rules"

@@ -1,0 +1,65 @@
+Description: Enable local third party
+ To avoid unavailable packages currently
+Author: Don Xu <me@eipi.fun>
+
+Origin: other
+Forwarded: not-needed
+Last-Update: 2024-12-15
+
+--- pay-respects-0.6.5.orig/module-request-ai/Cargo.toml
++++ pay-respects-0.6.5/module-request-ai/Cargo.toml
+@@ -16,7 +16,7 @@ rust-i18n = { path = "../third-party/rus
+ serde_json = { version = "1.0" }
+ serde = { version = "1.0", features = ["derive"]}
+ textwrap = "0.16"
+-terminal_size = "0.4"
++terminal_size = "0"
+ 
+ 
+ curl = { version = "0.4", optional = true }
+--- pay-respects-0.6.5.orig/third-party/rust-i18n/Cargo.toml
++++ pay-respects-0.6.5/third-party/rust-i18n/Cargo.toml
+@@ -28,7 +28,7 @@ smallvec = "1.12.0"
+ foo = { path = "examples/foo" }
+ criterion = "0.5"
+ lazy_static = "1"
+-serde_yml = "0.0.11"
++serde_yml = "0.0"
+ 
+ [build-dependencies]
+ globwalk = "0.8.1"
+--- pay-respects-0.6.5.orig/third-party/rust-i18n/crates/macro/Cargo.toml
++++ pay-respects-0.6.5/third-party/rust-i18n/crates/macro/Cargo.toml
+@@ -17,7 +17,7 @@ quote = "1.0.2"
+ rust-i18n-support = { path = "../support", version = "3.0.0" }
+ serde = "1"
+ serde_json = "1"
+-serde_yml = "0.0.11"
++serde_yml = "0.0"
+ syn = { version = "2.0.18", features = ["full", "extra-traits"] }
+ 
+ [dev-dependencies]
+--- pay-respects-0.6.5.orig/third-party/rust-i18n/crates/support/Cargo.toml
++++ pay-respects-0.6.5/third-party/rust-i18n/crates/support/Cargo.toml
+@@ -9,16 +9,16 @@ version = "3.1.2"
+ 
+ [dependencies]
+ arc-swap = "1.6.0"
+-base62 = "2.0.2"
++base62 = { path = "../../../base62" }
+ globwalk = "0.8.1"
+-itertools = "0.11.0"
++itertools = "0"
+ once_cell = "1.10.0"
+ proc-macro2 = "1.0"
+ serde = { version = "1", features = ["derive"] }
+ serde_json = "1"
+-serde_yml = "0.0.11"
+-siphasher = "1.0"
+-toml = "0.7.4"
++serde_yml = "0.0"
++siphasher = { path = "../../../siphasher" }
++toml = "0"
+ normpath = "1.1.1"
+ lazy_static = "1"
+ regex = "1"
