@@ -1,0 +1,40 @@
+Source: pay-respects
+Section: utils
+Priority: optional
+Maintainer: Don Xu <me@eipi.fun>
+Build-Depends: 
+	debhelper-compat (= 13),
+	cargo,
+	rustc (>= 1.75),
+	libstd-rust-dev,
+	librust-colored-dev,
+	librust-inquire-dev,
+	librust-regex-lite-dev,
+	librust-proc-macro2-dev,
+	librust-sys-locale-dev,
+	librust-toml-dev,
+	librust-criterion-dev,
+	librust-serde-yml-dev,
+	librust-globwalk-dev,
+	librust-glob-dev,
+	librust-arc-swap-dev,
+	librust-normpath-dev,
+	librust-siphasher-dev,
+	librust-triomphe-dev,
+	librust-quickcheck-dev,
+	librust-curl-dev,
+	librust-textwrap-dev,
+	librust-openssl-probe-dev,
+	librust-openssl-sys-dev
+Standards-Version: 4.7.0
+Homepage: https://github.com/iffse/pay-respects
+Rules-Requires-Root: no
+Vcs-Browser: https://salsa.debian.org/EiPiFun/pay-respects
+Vcs-Git: https://salsa.debian.org/EiPiFun/pay-respects.git
+
+Package: pay-respects
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Press F to correct your command
+ pay-respects is a command suggestions, command-not-found tool
+ and thefuck replacement written in Rust.

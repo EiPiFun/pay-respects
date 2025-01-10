@@ -1,0 +1,2 @@
+version=4
+https://github.com/iffse/@PACKAGE@/tags .*/tags/v?@ANY_VERSION@@ARCHIVE_EXT@

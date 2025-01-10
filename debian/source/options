@@ -1,0 +1,2 @@
+# relax deps, and, fake rust-i18n
+extend-diff-ignore = "Cargo.lock|core/src/i18n.rs|module-request-ai/src/i18n.rs"

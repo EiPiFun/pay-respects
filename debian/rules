@@ -1,0 +1,23 @@
+#!/usr/bin/make -f
+
+include /usr/share/rustc/architecture.mk
+
+CARGO_BASE_ARGS = --release --target $(DEB_TARGET_RUST_TYPE)
+BIN = --bin pay-respects
+
+%:
+	@dh $@
+
+execute_before_dh_auto_configure:
+	mkdir -p .cargo
+	cp debian/cargo-config.toml .cargo/config.toml
+	rm Cargo.lock
+	cp debian/missing-sources/locale.rs ./core/src
+	cp debian/missing-sources/locale.rs ./module-request-ai/src
+
+override_dh_auto_build:
+	cargo build $(CARGO_BASE_ARGS) $(BIN)
+	cargo run $(CARGO_BASE_ARGS) $(BIN) -- --generate-man > debian/pay-respects.1
+
+override_dh_auto_test:
+	cargo test $(CARGO_BASE_ARGS)
